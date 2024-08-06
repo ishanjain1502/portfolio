@@ -3,12 +3,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="grid place-items-center">
-      <section className="p-4 md:px-4 px-8 w-4/5 font-bold">
+      <section className="w-4/5 text-center">
         {/* Introduction */}
         <br/>
-        <h3 className="text-3xl md:text-2xl" >Hi There👋</h3>
-        <br/>
-        <div className="text-3xl" >I'm <span className="text-4xl font-bold bg-gradient-to-r from-red-500 to-blue-500 text-transparent bg-clip-text" >Ishan Jain</span>. Here you can check out what I am working on. I try my best to create things that can either help people or at least can entertain them</div>
+        <div className="py-2 px-4 text-xl" >Hi, I'm <span className="text-xl font-bold bg-gradient-to-r from-red-500 to-blue-500 text-transparent bg-clip-text" >Ishan Jain</span>. Solving problems using code is what I do.</div>
+        <div>          
+        </div>
         <br/>
         
       </section>

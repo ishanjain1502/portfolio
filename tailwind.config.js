@@ -53,6 +53,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        backgroundImage:{
+          'gradient-blugrana': 'linear-gradient(to right, #f56565, #4299e1)'
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

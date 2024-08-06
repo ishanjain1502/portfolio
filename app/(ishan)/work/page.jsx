@@ -43,9 +43,9 @@ const page = () => {
 
   return (
     <section>
-        <span><h1>Experience and Projects</h1></span>
+        <span><h1>Experience</h1></span>
         <div>
-            <h2 className='font-bold text-2xl' >Experience</h2>
+            <h2 className='font-bold text-2xl' ></h2>
             <br/>
             <ul>
                     {experience.map((exp, index) => (
@@ -53,14 +53,16 @@ const page = () => {
                             <h4 className='font-bold' >{exp.Company}</h4>
                             <h3 className='font-semibold italic' >{exp.Title}</h3>
                             <span>Duration: {exp.duration}</span>
-                            <div>
+                            <div className='pt-2' >
                                 {exp.desc}
                             </div>
+                            <br/>
                             <div className='flex flex-wrap gap-2' >
                                 {exp.techStack.map((tech, index) => (
                                     <span key={index} className='bg-gray-300 rounded-md p-2 px-3 border-2 border-black' >{tech}</span>
                                 ))}
                             </div>
+                            <hr className='w-full md:w-3/5 my-2' />
                             <br/>
                         </li>
                     ))}

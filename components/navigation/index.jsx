@@ -52,60 +52,42 @@ const Navigation = () => {
     ]
 
     return (
-        <nav className={`bg-black text-white mx-auto px-2 sticky top-2 transition-all duration-300 rounded-3xl backdrop-filter backdrop-blur-lg border-b border-gray-200 bg-opacity-20 ${isScrolledDown ? 'w-11/12' : 'w-4/5'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              <div className="flex-shrink-0">
-                <Link onClick={()=> {
-                        setIsOpen(false)
-                    }}  href="/">
+        <nav onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setIsOpen(!isOpen);
+        }} className={`bg-black text-white mx-auto px-2 sticky top-2 transition-all duration-500 rounded-3xl backdrop-filter backdrop-blur-lg border-b border-gray-200 bg-opacity-20 ${isOpen ? 'w-11/12' : 'w-3/5'}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
+            <div className="flex items-center justify-center h-8">
+              <div  onClick={(event)=> {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        // only trigger this when, mobile screen
+                        if(window.innerWidth < 768) {
+                            setIsOpen(false)
+                        }
+                    }} className="text-center flex-shrink-0">
+                <Link href="/">
                     Ishan
                 </Link>
               </div>
               <div className="hidden md:flex">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {sections.map((section, index) => (
-                    <Link key={index} href={section.url} className="hover:bg-gray-700 px-3 py-2 rounded-md">
+                    <Link key={index} href={section.url} className="hover:bg-gradient-to-r from-red-500 to-blue-500 px-3 py-2 rounded-md">
                         {section.name}
                     </Link>
                     ))}
                 </div>
-                <div className="ml-10 flex items-baseline space-x-4">
+                {/* <div className="ml-10 flex items-baseline space-x-4">
                   {socials.map((social, index) => (
                         <Link href={social.url}>
-                            <Image src={social.icon} width={45} height={45} alt={social.name} />    
+                            <Image src={social.icon} width={25} height={25} alt={social.name} />    
                         </Link> 
                     ))}
-                </div>
+                </div> */}
               </div>
-              <div className="md:hidden">
-                <button
-                  onClick={toggleMenu}
-                  className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                >
-                  <span className="sr-only">Open main menu</span>
-                  <svg
-                    className={`${isOpen ? 'hidden' : 'block'} h-6 w-6`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                  <svg
-                    className={`${isOpen ? 'block' : 'hidden'} h-6 w-6`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+
             </div>
           </div>
     
@@ -115,11 +97,11 @@ const Navigation = () => {
                 {sections.map((section, index) => (
                     <Link onClick={()=> {
                         setIsOpen(false)
-                    }} key={index} href={section.url} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+                    }} key={index} href={section.url} className="hover:bg-gray-500 block px-3 py-2 rounded-md text-base font-medium">
                         {section.name}
                     </Link>
                 ))}
-                <div className='flex gap-2 align-middle' >
+                {/* <div className='flex gap-2 align-middle' >
                     {socials.map((social, index) => (
                         <Link onClick={()=> {
                             setIsOpen(false)
@@ -127,7 +109,7 @@ const Navigation = () => {
                                 <Image src={social.icon} width="25px" alt={social.name} />
                         </Link>
                     ))}
-                </div>
+                </div> */}
             </div>
           </div>
         </nav>
